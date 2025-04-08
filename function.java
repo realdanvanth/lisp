@@ -62,6 +62,25 @@ class function
     for(int i = 0 ; i < subcode.length ; i++)
     {
       System.out.println(subcode[i]);
+      String code []= subcode[i].split(" ");
+      switch (code[0]) {
+        case "print":
+          return print(code[1]);
+        case "add":
+          return add(code[1],code[2]);
+        case "sub":
+          return sub(code[1],code[2]);
+        case "mul":
+          return mul(code[1],code[2]);
+        case "div":
+          return div(code[1],code[2]);
+        case "eq":
+          return equal(code[1],code[2]);
+        case "gt":
+          return greater(code[1],code[2]);
+        default:
+          break;
+      }
     }
     return null;
   }
