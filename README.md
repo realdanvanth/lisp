@@ -18,5 +18,3 @@ At its core:
 - Evaluation always resolves to a **string result**, even for numbers or booleans.
 
 > Example: `("N ; print 'hello'")` prints `hello`.
-
----
