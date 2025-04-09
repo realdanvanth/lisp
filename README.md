@@ -20,8 +20,9 @@ and the second element is function code or subatom that must be evaluated.
 
 > Example: `("N ; print 'hello'")` prints `hello`.
 >          `("x=(x=5;print x);print x")` prints `5`
-for loop possible syntax:
-> ("x=(x=0; while (lt x 5) (x=add x 1; print x))")
+
+### for loop possible syntax:
+  ("x=(x=0; while (lt x 5) (x=add x 1; print x))")
 
 # To-Do List
 - [x] 1. Print Hello World
