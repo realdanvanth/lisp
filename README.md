@@ -19,6 +19,7 @@ and the second element is function code or subatom that must be evaluated.
 - Evaluation always resolves to a **string result**, even for numbers or booleans.
 
 > Example: `("N ; print 'hello'")` prints `hello`.
+>          `("x=(x=5;print x),print x")` prints `5`
 
 # To-Do List
 - [x] 1. Print Hello World
