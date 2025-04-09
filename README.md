@@ -20,11 +20,14 @@ and the second element is function code or subatom that must be evaluated.
 
 > Example: `("N ; print 'hello'")` prints `hello`.
 >          `("x=(x=5;print x);print x")` prints `5`
+for loop possible syntax:
+> ("x=(x=0; while (lt x 5) (x=add x 1; print x))")
 
 # To-Do List
 - [x] 1. Print Hello World
-- [x] 2. Variable Declaration and Print
+- [x] 2. Variable Declaration and Display
 - [ ] 3. If condition
+- [ ] 4. Loops and recursion
 - [ ] 5. User-Defined Functions
 - [ ] 6. Prime Number Program 
 
