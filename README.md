@@ -1,5 +1,5 @@
 # Telos
-# A Tiny Lisp-like Language Built on Strings
+# A Tiny Language Built on Strings
 
 **Telos** is a minimal interpreter dialect where **everything is an atom** and **everything evaluates to a string**.
 
