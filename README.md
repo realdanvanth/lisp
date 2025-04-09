@@ -20,3 +20,10 @@ and the second element is function code or subatom that must be evaluated.
 
 > Example: `("N ; print 'hello'")` prints `hello`.
 
+# To-Do List
+- [x] 1. Print Hello World
+- [x] 2. Variable Declaration and Print
+- [ ] 3. User-Defined Functions
+- [ ] 4. Prime Number Program 
+
+
