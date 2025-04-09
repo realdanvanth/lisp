@@ -1,10 +1,11 @@
 # Telos
-# A Tiny Lisp-like Language Built on Strings
+# A Tiny Language Built on Strings
 
-**Telos** is a minimalist Lisp dialect where **everything is an atom** and **everything evaluates to a string**.
+**Telos** is a minimal interpreter dialect where **everything is an atom** and **everything evaluates to a string**.
 
 At its core:
-- Programs are composed of **tuples** (Python-style), where the first element is variable declaration , N for no variables.
+- Atoms are composed of **tuples** with two strings, where the first element is for variable declaration , N for no variables
+and the second element is function code or subatom that must be evaluated.
 - Subsequent elements are **arguments** — either sub atoms or user defined or inbuilt functions.
 - All values are represented as **strings** internally and externally.
 - Arithmetic, logic, and other operations **parse and return updated strings**.
@@ -18,3 +19,17 @@ At its core:
 - Evaluation always resolves to a **string result**, even for numbers or booleans.
 
 > Example: `("N ; print 'hello'")` prints `hello`.
+>          `("x=(x=5;print x);print x")` prints `5`
+
+### for loop possible syntax:
+  ("x=(x=0; while (lt x 5) (x=add x 1; print x))")
+
+# To-Do List
+- [x] 1. Print Hello World
+- [x] 2. Variable Declaration and Display
+- [ ] 3. If condition
+- [ ] 4. Loops and recursion
+- [ ] 5. User-Defined Functions
+- [ ] 6. Prime Number Program 
+
+
