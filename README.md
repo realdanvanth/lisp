@@ -1,4 +1,4 @@
-# lisp
+# Telos
 # A Tiny Lisp-like Language Built on Strings
 
 **StringLisp** is a minimalist Lisp dialect where **everything is an atom** and **everything evaluates to a string**.
@@ -11,7 +11,7 @@ At its core:
 
 ---
 
-## 🧪 Philosophy
+## Philosophy
 - **Code is data, and data is string.**
 - Instead of traditional typed values, everything is stored and manipulated as a **string**.
 - Atoms are the primary unit: a symbol that triggers evaluation.
