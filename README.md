@@ -1,7 +1,7 @@
 # Telos
 # A Tiny Language Built on Strings
 
-**Telos** is a minimal interpreter dialect where **everything is an atom** and **everything evaluates to a string**.
+**Telos** is a minimal interpreter dia-lect where **everything is an atom** and **everything evaluates to a string**.
 
 At its core:
 - Atoms are composed of **tuples** with two strings, where the first element is for variable declaration , N for no variables
