@@ -1,7 +1,7 @@
 # Telos
 # A Tiny Lisp-like Language Built on Strings
 
-**StringLisp** is a minimalist Lisp dialect where **everything is an atom** and **everything evaluates to a string**.
+**Telos** is a minimalist Lisp dialect where **everything is an atom** and **everything evaluates to a string**.
 
 At its core:
 - Programs are composed of **tuples** (Python-style), where the first element is variable declaration , N for no variables.
