@@ -113,8 +113,32 @@ class atom
             output+=inst.get(func[1])+"\n";
             break;
           case "add":
-             System.out.println("Passing "+func[1]+" to add");
+            System.out.println("Passing "+func[1]+" to add");
             output+=inst.add(func[1])+'\n';
+            break;
+          case "mul":
+            System.out.println("Passing "+func[1]+" to mul");
+            output+=inst.mul(func[1])+'\n';
+            break;
+          case "sub":
+            System.out.println("Passing "+func[1]+" to sub");
+            output+=inst.sub(func[1])+'\n';
+            break;
+          case "mod":
+            System.out.println("Passing "+func[1]+" to mod");
+            output+=inst.mod(func[1])+'\n';
+            break;
+          case "greater":
+            System.out.println("Passing "+func[1]+" to greater");
+            output+=inst.greater(func[1])+'\n';
+            break;
+          case "equal":
+            System.out.println("Passing "+func[1]+" to equal");
+            output+=inst.equal(func[1])+'\n';
+            break;
+          case "if":
+            System.out.println("Passing "+func[1]+" to if");
+            output+=inst.condition(func[1])+'\n';
             break;
           default:
             output+="No such funtion\n";
@@ -139,7 +163,10 @@ class atom
   public static void main(String args[])
   {
     //atom a = new atom("x=2,y=3","[square {1} = mul 1 1];print (square x)");
-    //atom a = new atom("x=3;add x (N;add '1' '1')");
+    //atom a = new atom("(N;mod '2' '1')");
+    //atom a = new atom("x=2;if (N;greater x '2') (N;add x '1') (N;sub x '1')");
+    //atom a = new atom("N;greater '3' '2'");
+    atom a = new atom("x=3;mul x x;add x (N;mul (N;mul '2' '-2') (N;sub '1' '3'));get 'hello world'");
     a.printVariables();
     System.out.println(a.exec());
   }
