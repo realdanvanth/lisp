@@ -26,6 +26,8 @@ and the second element is function code or subatom that must be evaluated.
 ### for loop possible syntax:
   ("x=(x=0; while (lt x 5) (x=add x 1; print x))")
 
+![image](https://github.com/user-attachments/assets/1128fbaf-3e7a-41a0-bc35-3d12dbd7d778)
+
 # To-Do List
 - [x] 1. Print Hello World
 - [x] 2. Variable Declaration and Display
