@@ -9,6 +9,38 @@ class atom
     initVar(varCode);
     this.code = code;
   }
+  atom(String Code)
+  {
+    Code = strip(Code);
+    String []subcode = splitFirst(Code,';');
+    if(subcode[0].charAt(0)!='N')
+    initVar(subcode[0]);
+    this.code = subcode[1];
+  }
+  ArrayList<String> depthSplit(String code,char a)//give with the spaces
+  {
+    int depth = 0;
+    int start = 0;
+    ArrayList<String> entries = new ArrayList<>();
+     for(int i = 0;i<code.length();i++)
+    {
+      if(code.charAt(i)=='(')
+        depth++;
+      else if(code.charAt(i)==')')
+        depth--;
+      if (code.charAt(i) == a && depth == 0)
+      {
+        if(start>=i)
+        {
+          terminate(1);
+        }
+        entries.add(code.substring(start,i));
+        start = i + 1;
+      }
+    }
+    entries.add(code.substring(start));
+    return entries;
+  }
   public void terminate(int x)
   {
     System.out.println("Invalid Syntax ("+x+") : Exiting");
@@ -40,27 +72,8 @@ class atom
   }
   void initVar(String code)
   {
-    ArrayList<String> entries = new ArrayList<>();
-    int depth = 0;
-    int start = 0;
-    for(int i = 0;i<code.length();i++)
-    {
-      if(code.charAt(i)=='(')
-        depth++;
-      else if(code.charAt(i)==')')
-        depth--;
-      if (code.charAt(i) == ','&& depth == 0)
-      {
-        if(start>=i)
-        {
-          terminate(1);
-        }
-        entries.add(code.substring(start,i));
-        start = i + 1;
-      }
-    }
-   entries.add(code.substring(start));
-   for(int i=0;i<entries.size();i++)
+    ArrayList<String> entries = depthSplit(code,',');
+    for(int i=0;i<entries.size();i++)
     {
       String varDat [] = splitFirst(entries.get(i),'=');
       System.out.println("Entry "+i+" : "+entries.get(i));
@@ -76,34 +89,39 @@ class atom
         }
         varDat[1] = strip(varDat[1]);
         String []subcode = splitFirst(varDat[1],';');
-        atom sub = new atom(subcode[0],subcode[1]);
+        atom sub = new atom(subcode[0],subcode[1]);//add the global variabless here(important)
         System.out.println("subAtom: "+subcode[0]+";"+subcode[1]);
-        //varDat[1] = sub.exec();
+        varDat[1] = sub.exec();
       }
       varMap.put(varDat[0].trim(),varDat[1].trim());
     }
   }
   String exec()
   {
-    System.out.println("CODE :"+code);
+    String output = "";
     if(code.charAt(0)!='(')
     {
-      String steps[] = code.split(";");
-      for(int i=0;i<steps.length;i++)
+      ArrayList<String> steps = depthSplit(code,';');
+      for(int i=0;i<steps.size();i++)
       {
-        String func[] = splitFirst(steps[i],' ');
+        String func[] = splitFirst(steps.get(i),' ');
         function inst = new function(varMap);
         switch(func[0])
         {
-          case "print": 
-            inst.print(func[1]);
-          break;
+          case "get":
+            System.out.println("Passing "+func[1]+" to get");
+            output+=inst.get(func[1])+"\n";
+            break;
+          case "add":
+             System.out.println("Passing "+func[1]+" to add");
+            output+=inst.add(func[1])+'\n';
+            break;
           default:
-            inst.print("No such funtion");
+            output+="No such funtion\n";
           break;
         }
       }
-      return null;
+      return output.substring(0,output.length()-1);
     }
     else
     {
@@ -121,9 +139,8 @@ class atom
   public static void main(String args[])
   {
     //atom a = new atom("x=2,y=3","[square {1} = mul 1 1];print (square x)");
-    atom a = new atom("x='hello world',y=0","print x");
+    //atom a = new atom("x=3;add x (N;add '1' '1')");
     a.printVariables();
-    a.exec();
-    //System.out.println(a.exec());
+    System.out.println(a.exec());
   }
 }
