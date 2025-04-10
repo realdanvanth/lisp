@@ -28,9 +28,10 @@ and the second element is function code or subatom that must be evaluated.
 # To-Do List
 - [x] 1. Print Hello World
 - [x] 2. Variable Declaration and Display
-- [ ] 3. If condition
-- [ ] 4. Loops and recursion
-- [ ] 5. User-Defined Functions
-- [ ] 6. Prime Number Program 
+- [x] 3. Nested functions as parameters
+- [ ] 4. If condition
+- [ ] 5. Loops and recursion
+- [ ] 6. User-Defined Functions
+- [ ] 7. Prime Number Program 
 
 
