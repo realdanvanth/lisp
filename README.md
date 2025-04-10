@@ -15,8 +15,9 @@ and the second element is function code or subatom that must be evaluated.
 ## Philosophy
 - **Code is data, and data is string.**
 - Instead of traditional typed values, everything is stored and manipulated as a **string**.
-- Atoms are the primary unit: a symbol that triggers evaluation.
-- Evaluation always resolves to a **string result**, even for numbers or booleans.
+- Atoms are the primary unit: that can be evaluated
+- Evaluation always yields a **string result**, even for numbers or booleans.
+- Airthmetic functions take strings parse it to integers and store the result in a string
 
 ## Examples
 - ``("N ; print 'hello'")`` prints hello.
