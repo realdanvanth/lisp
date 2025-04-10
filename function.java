@@ -36,7 +36,7 @@ class function
     System.out.println("Parameters :"+parameters);
     if(parameters.size()!=2)
     {
-      return "Parameters Error";
+      return "Parameters error";
     }
     else
     {
@@ -49,7 +49,7 @@ class function
     System.out.println("Parameters :"+parameters);
     if(parameters.size()!=2)
     {
-      return "Parameters Error";
+      return "Parameters error";
     }
     else
     {
@@ -62,7 +62,7 @@ class function
     System.out.println("Parameters :"+parameters);
     if(parameters.size()!=2)
     {
-      return "Parameters Error";
+      return "Parameters error";
     }
     else
     {
@@ -75,14 +75,44 @@ class function
     System.out.println("Parameters :"+parameters);
     if(parameters.size()!=2)
     {
-      return "Parameters Error";
+      return "Parameters error";
     }
     else
     {
       return Integer.toString(Integer.parseInt(get(parameters.get(0)))/Integer.parseInt(get(parameters.get(1))));
     }
   }
+  public String equal(String x)
+  {
+    ArrayList<String> parameters = depthSplit(x,' ');
+    System.out.println("Parameters :"+parameters);
+    if(parameters.size()!=2)
+    {
+      return "Parameters error";
+    }
+    else
+    {
+      int a =Integer.parseInt(get(parameters.get(0)));
+      int b = Integer.parseInt(get(parameters.get(1)));
+      return (a==b)?"'1'":"'0'";
+    }
 
+  }
+  public String greater(String x)
+  {
+    ArrayList<String> parameters = depthSplit(x,' ');
+    System.out.println("Parameters :"+parameters);
+    if(parameters.size()!=2)
+    {
+      return "Parameters error";
+    }
+    else
+    {
+      int a =Integer.parseInt(get(parameters.get(0)));
+      int b = Integer.parseInt(get(parameters.get(1)));
+      return (a>b)?"'1'":"'0'";
+    }
+  }
   public void terminate(int x)
   {
     System.out.println("Invalid Function Syntax ("+x+") : Exiting");
@@ -116,11 +146,33 @@ class function
     entries.add(code.substring(start));
     return entries;
   }
-
+  public String condition(String x)
+  {
+    ArrayList<String> entries = depthSplit(x,' ');
+    if(entries.size()!=3)
+    {
+      return "condition error"; 
+    }
+    else
+    {
+      atom subatom = new atom(entries.get(0));
+      String out = subatom.exec();
+      if(out.equals("'1'"))
+      {
+        atom subatomCond = new atom(entries.get(1));
+        return subatomCond.exec();
+      }
+      else
+      {
+        atom subatomCond = new atom(entries.get(2));
+        return subatomCond.exec();
+      }
+    }
+  }
   public static void main(String args[]) 
   {
     function a= new function(null);
     System.out.println(a.depthSplit("(x=2;get x) 3",' '));
-    System.out.println(a.add("'2' '3'"));
+    System.out.println(a.greater("'4' '3'"));
   }
 }
