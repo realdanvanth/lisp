@@ -33,7 +33,7 @@ and the second element is function code or subatom that must be evaluated.
 - [x] 1. Print Hello World
 - [x] 2. Variable Declaration and Display
 - [x] 3. Nested functions as parameters
-- [ ] 4. If condition
+- [x] 4. Conditional statements
 - [ ] 5. Loops and recursion
 - [ ] 6. User-Defined Functions
 - [ ] 7. Prime Number Program 
