@@ -21,7 +21,8 @@ and the second element is function code or subatom that must be evaluated.
 ## Examples
 - ("N ; print 'hello'") prints hello.
 - ("x=(x=5;print x);print x") prints 5
-- (x=3;add x (N;add '1' '1')) outputs 5
+- ("x=3;add x (N;add '1' '1')") outputs 5
+- ("N;if (N;greater '3' '2') (N;add '4' '1') (N;sub '5' '1')") outputs 5
 
 ### for loop possible syntax:
   ("x=(x=0; while (lt x 5) (x=add x 1; print x))")
