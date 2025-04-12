@@ -38,8 +38,8 @@ and the second element is function code or subatom that must be evaluated.
 - [x] 2. Variable Declaration and Display
 - [x] 3. Nested functions as parameters
 - [x] 4. Conditional statements
-- [ ] 5. Loops and recursion
+- [x] 5. Loops and recursion
+- [x] 7. Prime Number Program
 - [ ] 6. User-Defined Functions
-- [ ] 7. Prime Number Program 
 
 
