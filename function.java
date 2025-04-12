@@ -5,6 +5,7 @@ class function
   function(HashMap<String ,String> varMap)
   {
     this.varMap = varMap;
+    System.out.println(varMap);
   }
   public String strip(String s)
   {
@@ -20,7 +21,9 @@ class function
     {
       atom subatom = new atom(strip(x));
       subatom.inherit(varMap);
-      return subatom.exec();
+      String out = subatom.exec();
+      update(varMap,subatom.varMap);
+      return out;
     }
     else if(x.charAt(0)!='\'')
     {
@@ -31,6 +34,13 @@ class function
       return x.substring(1,x.length()-1);
     }
   }
+  public static void update(HashMap<String, String> a , HashMap<String, String> b)
+     {
+        for (String name : a.keySet()) {
+               a.put(name, b.get(name));
+          }
+  }
+
   public String add(String x)
   {
     ArrayList<String> parameters = depthSplit(x,' ');
@@ -150,6 +160,7 @@ class function
   public String condition(String x)
   {
     ArrayList<String> entries = depthSplit(x,' ');
+    System.out.println("Variables : "+varMap);
     if(entries.size()!=3)
     {
       return "condition error"; 
@@ -157,16 +168,24 @@ class function
     else
     {
       atom subatom = new atom(entries.get(0));
+      subatom.inherit(varMap);
       String out = subatom.exec();
+      update(varMap,subatom.varMap);
       if(out.equals("'1'"))
       {
         atom subatomCond = new atom(entries.get(1));
-        return subatomCond.exec();
+        subatomCond.inherit(varMap);
+        out = subatomCond.exec();
+        update(varMap,subatomCond.varMap);
+        return out;
       }
       else
       {
         atom subatomCond = new atom(entries.get(2));
-        return subatomCond.exec();
+        subatomCond.inherit(varMap);
+        out = subatomCond.exec();
+        update(varMap,subatomCond.varMap);
+        return out;
       }
     }
   }
