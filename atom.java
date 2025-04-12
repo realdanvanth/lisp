@@ -84,6 +84,7 @@ class atom {
                     System.out.println("subAtom: " + subcode[0] + ";" +
                                        subcode[1]);
                     varDat[1] = sub.exec();
+                    update(varMap,sub.varMap);
                }
                varMap.put(varDat[0].trim(), varDat[1].trim());
           }
@@ -159,8 +160,11 @@ class atom {
                               System.out.println("subAtom: " + subcode[0] +
                                                  ";" + subcode[1]);
                               instruction.set(2, sub.exec());
+                              update(varMap,sub.varMap);
+
                          }
                          varMap.put(instruction.get(1),instruction.get(2));
+                         System.out.println("Var Map now "+varMap);
                     }
                }
                return output.substring(0, output.length() - 1);
@@ -170,13 +174,23 @@ class atom {
                atom sub = new atom(subcode[0], subcode[1]);
                sub.inherit(varMap);
                System.out.println("subAtom: " + subcode[0] + ";" + subcode[1]);
-               return sub.exec();
+               String out = sub.exec();
+               update(varMap,sub.varMap);
+               return out;
+
           }
      }
      public void inherit(HashMap<String, String> Parent) {
           for (String name : Parent.keySet()) {
                varMap.put(name, Parent.get(name));
           }
+     }
+     public static void update(HashMap<String, String> a , HashMap<String, String> b)
+     {
+        for (String name : a.keySet()) {
+               a.put(name, b.get(name));
+          }
+        System.out.println("Updated "+a);
      }
      void printVariables() { System.out.println(varMap); }
      public static void main(String args[]) {
@@ -186,7 +200,11 @@ class atom {
           // a = new atom("N;greater '3' '2'"); atom a = new atom("x=3;mul x
           // x;add x (N;mul (N;mul '2' '-2') (N;sub '1' '3'));get 'hello
           // world'");
-          //atom a = new atom("x=2;= x (N;add x '1');get x");
+          //atom a = new atom("x=2;= x (N;add x x);get x");
+          //atom a = new atom("x=10,i=0,f=0;while (N; greater x i) (N;if (N;equal (N;div x i) '0')(N;= f add f '1')(N;get 'hello')) (N;+ i add i '1'); if (N;equal f '1') (N;get 'it is prime') (N;get 'it is not prime')");//update child = update parent (important )
+          //atom a = new atom("x=2;if (N;greater '5' x) (N;= x(N;add '4' '1')) (N;get 'hello');get x");
+          atom a = new atom("x=0;(N;= x (N;add x '1'));get x");
+          //atom a = new atom("x=2;get x;get (N;get x;get x)");
           a.printVariables();
           System.out.println(a.exec());
      }
