@@ -19,6 +19,7 @@ class function
     if(x.charAt(0)=='(')
     {
       atom subatom = new atom(strip(x));
+      subatom.inherit(varMap);
       return subatom.exec();
     }
     else if(x.charAt(0)!='\'')
