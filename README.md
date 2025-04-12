@@ -25,6 +25,7 @@ and the second element is function code or subatom that must be evaluated.
 - ``("x=3;add x (N;add '1' '1')")`` outputs 5
 - ``("N;if (N;greater '3' '2') (N;add '4' '1') (N;sub '5' '1')") ``outputs 5
 - ``(x=2;= x (N;add x '1');get x)`` increments x by 1 and prints the answer
+- ``x=0;if (N;equal x '0') (N;= x (N;add '1' '1');get x) (N;get 'world');get x`` prints 2 twice
 
 ### for loop possible syntax:
   ("x=(x=0; while (lt x 5) (x=add x 1; print x))")
