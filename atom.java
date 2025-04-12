@@ -140,6 +140,11 @@ class atom {
                                                  " to if");
                               output += inst.condition(func[1]) + '\n';
                               break;
+                          case "loop":
+                              System.out.println("Passing " + func[1] +
+                                                 " to if");
+                              output+= inst.loop(func[1])+'\n';
+                              break;
                          default:
                               output += "No such funtion\n";
                               break;
@@ -200,11 +205,16 @@ class atom {
           // x;add x (N;mul (N;mul '2' '-2') (N;sub '1' '3'));get 'hello
           // world'");
           //atom a = new atom("x=2;= x (N;add x x);get x");
-          //atom a = new atom("x=10,i=0,f=0;while (N; greater x i) (N;if (N;equal (N;div x i) '0')(N;= f add f '1')(N;get 'hello')) (N;+ i add i '1'); if (N;equal f '1') (N;get 'it is prime') (N;get 'it is not prime')");//update child = update parent (important )
+          //atom a = new atom("x=10,i=0,f=0;while (N; greater x i) (N;if (N;equal (N;div x i) '0')(N;= f (N;add f '1'))(N;N)) (N;+ i add i '1'); if (N;equal f '1') (N;get 'it is prime') (N;get 'it is not prime')");//update child = update parent (important )
           //atom a = new atom("x=0;get (N;= x (N;add x '1');get x);get x");
-          atom a = new atom("x=0;if (N;equal x '0') (N;= x (N;add '1' '1');get x) (N;get 'world');get x");
-          //atom a = new atom("x=2;get x;get (N;get x;get x)");
+          //atom a = new atom("x=0,f=0;if (N;equal '0' (N;mod x '2')) (N;= f (N;add f '1');get f) (N;= f (N;add f '0');get f)");
+          atom a = new atom("x=99,i=2,f=0;loop (N;greater i x) (N;= i (N;add i '1');if (N;equal (N;mod x i) '0') (N;= f (N;add f '1');get '') (N;get ''));if (N;equal f '1') (N;get 'is prime') (N;get 'is not prime')");
+          //atom a = new atom("x=2,i=0,f=1;(N;= i (N;add i '1');if (N;equal (N;mod x i) '0') (N;= f (N;add f '1');get '') (N;get ''))")
+          //atom a = new atom("x=2;greater x '2'");
+          //atom a = new atom("x=18,i=2,f=0;while (N;equal (mod x i) '0') () ();get f")
+          //atom a = new atom("x=13;mod x '2'");
           a.printVariables();
           System.out.println(a.exec());
+
      }
 }
