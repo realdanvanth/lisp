@@ -20,10 +20,11 @@ and the second element is function code or subatom that must be evaluated.
 - Airthmetic functions take strings parse it to integers and store the result in a string
 
 ## Examples
-- ``("N ; print 'hello'")`` prints hello.
-- ``("x=(x=5;print x);print x")`` prints 5
+- ``("N ; get 'hello'")`` prints hello.
+- ``("x=(x=5;get x);get x")`` prints 5
 - ``("x=3;add x (N;add '1' '1')")`` outputs 5
 - ``("N;if (N;greater '3' '2') (N;add '4' '1') (N;sub '5' '1')") ``outputs 5
+- ``x=2;= x (N;add x '1');get x`` increments x by 1 and prints the answer
 
 ### for loop possible syntax:
   ("x=(x=0; while (lt x 5) (x=add x 1; print x))")
