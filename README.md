@@ -64,7 +64,7 @@ if (N;equal f '1')
   (N;get 'is prime') 
   (N;get 'is not prime')
 ```
-![image](https://github.com/user-attachments/assets/1128fbaf-3e7a-41a0-bc35-3d12dbd7d778)
+<!-- ![image](https://github.com/user-attachments/assets/1128fbaf-3e7a-41a0-bc35-3d12dbd7d778) -->
 
 # To-Do List
 - [x] 1. Print Hello World
