@@ -27,15 +27,15 @@ and the second element is function code or subatom that must be evaluated.
 - ``(x=2;= x (N;add x '1');get x)`` increments x by 1 and prints the answer
 - ``x=0;if (N;equal x '0') (N;= x (N;add '1' '1');get x) (N;get 'world');get x`` prints 2 twice
 - ``x=0;if (N;equal '0' (N;mod x '2')) (N;get 'is even') (N;get 'is odd');get x`` is even function
+-Prime number program
 - ```
   telos
-x=100901,i=2,f=0;
-loop (N;greater i x) (N;= i (N;add i '1');
-if (N;equal (N;mod x i) '0') 
-(N;= f (N;add f '1');get '') (N;get ''));
-if (N;equal f '1') (N;get 'is prime') (N;get 'is not prime')
+  x=100901,i=2,f=0;
+  loop (N;greater i x) (N;= i (N;add i '1');
+  if (N;equal (N;mod x i) '0') 
+  (N;= f (N;add f '1');get '') (N;get ''));
+  if (N;equal f '1') (N;get 'is prime') (N;get 'is not prime')```
 
-  ```
 
 ### for loop possible syntax:
   ("x=(x=0; while (lt x 5) (x=add x 1; print x))")
