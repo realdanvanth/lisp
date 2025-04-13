@@ -19,26 +19,38 @@ and the second element is function code or subatom that must be evaluated.
 - Evaluation always yields a **string result**, even for numbers or booleans.
 - Airthmetic functions take strings parse it to integers and store the result in a string
 
-## Examples
-- ``("N ; get 'hello'")`` prints hello.
-- ``("x=(x=5;get x);get x")`` prints 5
-- ``("x=3;add x (N;add '1' '1')")`` outputs 5
-- ``("N;if (N;greater '3' '2') (N;add '4' '1') (N;sub '5' '1')") ``outputs 5
-- ``(x=2;= x (N;add x '1');get x)`` increments x by 1 and prints the answer
-- ``x=0;if (N;equal x '0') (N;= x (N;add '1' '1');get x) (N;get 'world');get x`` prints 2 twice
-- ``x=0;if (N;equal '0' (N;mod x '2')) (N;get 'is even') (N;get 'is odd');get x`` is even function
-Prime number program
-   ```
-  x=100901,i=2,f=0;
-  loop (N;greater i x) (N;= i (N;add i '1');
-  if (N;equal (N;mod x i) '0') 
-  (N;= f (N;add f '1');get '') (N;get ''));
-  if (N;equal f '1') (N;get 'is prime') (N;get 'is not prime')
+## 📦 Examples
 
+```lisp
+("N ; get 'hello'") 
+;; => "hello"
 
-### for loop possible syntax:
-  ("x=(x=0; while (lt x 5) (x=add x 1; print x))")
+("x=(x=5;get x);get x")
+;; => "5"
 
+("x=3;add x (N;add '1' '1')")
+;; => "5"
+
+("N;if (N;greater '3' '2') (N;add '4' '1') (N;sub '5' '1')")
+;; => "5"
+
+(x=2;= x (N;add x '1');get x)
+;; => "3"
+
+x=0;
+if (N;equal x '0') 
+  (N;= x (N;add '1' '1');get x) 
+  (N;get 'world');
+get x
+;; => "2" (twice)
+
+x=0;
+if (N;equal '0' (N;mod x '2')) 
+  (N;get 'is even') 
+  (N;get 'is odd');
+get x
+;; => "is even"
+```
 ![image](https://github.com/user-attachments/assets/1128fbaf-3e7a-41a0-bc35-3d12dbd7d778)
 
 # To-Do List
