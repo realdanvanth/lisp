@@ -19,7 +19,7 @@ and the second element is function code or subatom that must be evaluated.
 - Evaluation always yields a **string result**, even for numbers or booleans.
 - Airthmetic functions take strings parse it to integers and store the result in a string
 
-## 📦 Examples
+## Examples
 
 ```lisp
 ("N ; get 'hello'") 
@@ -50,6 +50,19 @@ if (N;equal '0' (N;mod x '2'))
   (N;get 'is odd');
 get x
 ;; => "is even"
+```
+## Prime Number Program
+```
+x=100901, i=2, f=0;
+loop (N;greater i x) 
+  (N;= i (N;add i '1');
+  if (N;equal (N;mod x i) '0') 
+    (N;= f (N;add f '1');get '') 
+    (N;get ''));
+    
+if (N;equal f '1') 
+  (N;get 'is prime') 
+  (N;get 'is not prime')
 ```
 ![image](https://github.com/user-attachments/assets/1128fbaf-3e7a-41a0-bc35-3d12dbd7d778)
 
