@@ -22,7 +22,7 @@ public class fread {
         }
         String code = read(args[0]);
         long start = System.nanoTime();
-        atom a = new atom(cleaned);
+        atom a = new atom(code);
         long end = System.nanoTime();
         System.out.println(a.exec());
         System.out.println((end - start)+" : Nanosecs");
