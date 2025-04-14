@@ -17,7 +17,7 @@ and the second element is function code or subatom that must be evaluated.
 - Instead of traditional typed values, everything is stored and manipulated as a **string**.
 - Atoms are the primary unit: that can be evaluated
 - Evaluation always yields a **string result**, even for numbers or booleans.
-- Airthmetic functions take strings parse it to integers and store the result in a string
+- Arithmetic functions take strings parse it to integers and store the result in a string
 
 ## Examples
 
