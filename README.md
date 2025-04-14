@@ -76,6 +76,7 @@ if (N;equal f '1')
 - [x] 4. Conditional statements
 - [x] 5. Loops and recursion
 - [x] 7. Prime Number Program
-- [ ] 6. User-Defined Functions
+- [ ] 8. Higher order functions
+- [ ] 9. User-Defined Functions
 
 
